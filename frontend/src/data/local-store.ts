@@ -57,3 +57,8 @@ export function resetRows(key: string): EntryRow[] {
 export function storageKey(): string {
   return STORAGE_KEY
 }
+
+/** 丢弃内存缓存、重新读 localStorage：模拟另一个页面刚写入的数据，用于并发冲突判断。 */
+export function reloadRows(): void {
+  cache = null
+}
